@@ -15,7 +15,52 @@
 ### Back-End
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
+<h2>Lado do Cliente::</h2>
 
+<h3>Home:</h3>
+
+https://github.com/DaviAlves08/PizzaRuth/assets/139929297/924d2af9-1825-4a59-adc1-b37c2d1751c7
+
+
+<h3>Cardápio:</h3>
+
+https://github.com/DaviAlves08/PizzaRuth/assets/139929297/226c4ecc-b205-4208-aecf-4d700862f72a
+
+
+<h3>Carrinho de Compras:</h3>
+
+https://github.com/DaviAlves08/PizzaRuth/assets/139929297/75444d30-d922-4ede-9fdb-987f40578e2b
+
+
+<h3>Cadastro:</h3>
+
+![Cadastro](https://github.com/DaviAlves08/PizzaRuth/assets/139929297/76e847f3-5abd-4088-a033-5476a3fc7a80)
+
+<h3>Login:</h3>
+
+![Login](https://github.com/DaviAlves08/PizzaRuth/assets/139929297/81aae9af-bf12-4aa2-a349-737e69c3bd9e)
+
+<h3>Dados do Cliente:</h3>
+
+![MeusDados](https://github.com/DaviAlves08/PizzaRuth/assets/139929297/36f5be99-3322-40ed-87a7-c46bc49f80fc)
+
+<h2>Lado do Admin:</h2>
+
+<h3>Cadastro, Edição e Exclusão de Pizzas e Bebidas:</h3>
+
+https://github.com/DaviAlves08/PizzaRuth/assets/139929297/5b246fdb-4c4f-4f20-9473-a22aeeac79aa
+
+<h3>Editando Bebida:</h3>
+
+https://github.com/DaviAlves08/PizzaRuth/assets/139929297/7d8b4d01-01de-41a1-af1d-4fc85bb05dd9
+
+
+
+<h2>Como Rodar a Aplicação</h2>
+
+```bash
+
+```
 
 ## Autor 
 
