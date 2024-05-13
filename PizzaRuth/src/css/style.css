@@ -1,0 +1,10 @@
+@media (min-width: 768px) {
+
+    #dialg  {
+        min-width: 27%;
+    }
+
+    #dialg  {
+        width: 27%;
+    }
+}
