@@ -19,8 +19,6 @@ function Login() {
         { email, password },
         { headers: { 'Content-Type': 'application/json' } }
       );
-      console.log(response.data);
-      console.log(email)
       setestaLogado(true);
     } catch (error) {
       if (!error?.response) {
@@ -34,57 +32,48 @@ function Login() {
   return (
     <>
       {!estaLogado ? (
-        <div className="w-screen h-full  overflow-x-hidden"
-          style={{
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#b7b3b3 #f1f1f1',
-          }}>
-          <nav className="bg-white border-gray-200 dark:bg-withe-900">
-            <div className="max-w-screen-xl flex flex-wrap mx-auto p-4 mt-6 ">
+        <div className="w-screen h-full overflow-x-hidden"
+          style={{ scrollbarWidth: 'thin', scrollbarColor: '#b7b3b3 #f1f1f1' }}>
+          <nav className="bg-white border-gray-200">
+            <div className="max-w-screen-xl flex flex-wrap mx-auto p-4 mt-6">
               <div className="flex flex-row mt-3">
                 <FontAwesomeIcon icon={faArrowLeft} className='text-red-500 pr-4 w-4 pt-0.5' />
-                <Typography className='text-red-500 text-lg font-bold'><a className='hover:text-red-500 text-red-500' href="/">Voltar para home</a></Typography>
+                <Typography className='text-red-500 text-lg font-bold'>
+                  <a className='hover:text-red-500 text-red-500' href="/">Voltar para home</a>
+                </Typography>
               </div>
-              <div className="flex flex-row ml-96 pb-2">
+              <div className="flex flex-row mx-auto pb-2">
                 <img src="/images/logo.png" className="h-12 mr-3" alt="PizzaRuth Logo" />
                 <p className="text-2xl font-semibold whitespace-nowrap dark:text-black pt-2">Pizza Ruth</p>
               </div>
             </div>
             <hr />
           </nav>
-          <div className="grid grid-cols-2  mb-10">
-            <img
-              src="/images/backcadastro.png"
-              alt="imagem de login do pizzaruth"
-              className="w-8/12 ml-40 mt-12"
-            />
-            <div className="justify-center mt-40 text-black ml-0">
-              <div className="w-full lg:w-1/2 ml-32 ">
-                <p className="mb-10 text-3xl ml-14">Acessar minha conta</p>
+          <div className="flex flex-col md:grid md:grid-cols-2 mb-10">
+            <div className="flex justify-center md:block">
+              <img
+                src="/images/backcadastro.png"
+                alt="imagem de login do pizzaruth"
+                className="w-8/12 md:ml-40 mt-12"
+              />
+            </div>
+            <div className="flex justify-center mt-10 md:mt-40 text-black px-6">
+              <div className="w-full max-w-sm">
+                <p className="mb-10 text-2xl md:text-3xl text-center">Acessar minha conta</p>
                 <form onSubmit={(e) => Login(e)}>
-                  <div className="">
+                  <div>
                     <input
-                      className="border border-gray-400 py-1 px-2 w-full rounded-lg text-2xl bg-white"
-                      placeholder='Email'
-                      type="text"
-                      name="email"
-                      id="email"
-                      required
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
+                      className="border border-gray-400 py-1 px-2 w-full rounded-lg text-xl md:text-2xl bg-white"
+                      placeholder='Email' type="text" name="email" id="email" required
+                      onChange={(e) => setEmail(e.target.value)} />
                   </div>
                   <div className="mt-6">
                     <input
-                      className="border border-gray-400 py-1 px-2 w-full rounded-lg text-2xl bg-white"
-                      placeholder='Senha'
-                      type="password"
-                      name="senha"
-                      id="senha"
-                      required
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
+                      className="border border-gray-400 py-1 px-2 w-full rounded-lg text-xl md:text-2xl bg-white"
+                      placeholder='Senha' type="password" name="senha" id="senha" required
+                      onChange={(e) => setPassword(e.target.value)} />
                   </div>
-                  <p className='ml-6 mt-4'>{error}</p>
+                  <p className='ml-2 mt-4'>{error}</p>
                   <div className="mt-8">
                     <button className="w-full bg-red-500 py-3 text-center text-white text-xl" type='submit'>Acessar</button>
                   </div>

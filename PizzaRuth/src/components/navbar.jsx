@@ -1,53 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faClipboard, faPizzaSlice } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faClipboard, faPizzaSlice, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import DropCardapio from "./dropCardapio"
-import DropCadrastro from './dropCadastro'
+import DropCadrastro from './dropCadastro';
 import Carrinho from './Carrinho';
 
 function NavBar() {
   const [Dados, setDados] = useState(null);
-  const [openCarrinho, setOpenCarrinho] = useState(false);
-
-  const AbrirCarrinho = () => {
-    setOpenCarrinho(true);
-  };
-
-  const FecharCarrinho = () => {
-    setOpenCarrinho(false);
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    
     const fetchDados = async () => {
       try {
         const userEmail = localStorage.getItem('userEmail');
-        if (!userEmail) {
-          return;
-        }
+        if (!userEmail) return;
         const response = await axios.get(`https://pizzaruth.onrender.com/Dados?email=${userEmail}`);
         setDados(response.data);
       } catch (error) {
         console.error('Erro ao obter os dados do usuário:', error);
       }
     };
-
     fetchDados();
   }, []);
 
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-withe-900">
+      <nav className="bg-white border-gray-200">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
           <a href="/">
             <div className="flex items-center">
-              <img src="/images/logo.png" className="h-14 mr-4" alt="PizzaRuth Logo" />
-              <p className="text-2xl font-semibold whitespace-nowrap dark:text-black">Pizza Ruth</p>
+              <img src="/images/logo.png" className="h-10 md:h-14 mr-2 md:mr-4" alt="PizzaRuth Logo" />
+              <p className="text-xl md:text-2xl font-semibold whitespace-nowrap text-black">Pizza Ruth</p>
             </div>
           </a>
 
-          <div className="flex justify-center flex-grow">
+          {/* Menu Desktop */}
+          <div className="hidden md:flex justify-center flex-grow">
             <ul className="flex flex-row">
               <li className="px-4">
                 <a href="/" className="block text-black rounded hover:text-black text-lg font-semibold">
@@ -56,7 +45,7 @@ function NavBar() {
               </li>
               <li className="px-4">
                 <div className="flex flex-row">
-                  <FontAwesomeIcon icon={faClipboard} className='pr-2  pt-0.5 w-4 text-black' />
+                  <FontAwesomeIcon icon={faClipboard} className='pr-2 pt-0.5 w-4 text-black' />
                   <DropCardapio />
                 </div>
               </li>
@@ -69,18 +58,19 @@ function NavBar() {
               </li>
             </ul>
           </div>
-          <div>
+
+          <div className="hidden md:flex">
             {Dados ? (
-              <div>
+              <div className="flex items-center">
                 <a className="text-black hover:text-black text-lg" href='meusdados'>
-                  <button className='hover:border-none border-none mr-4 bg-white font-semibold mr-20'>Meus Dados</button>
+                  <button className='hover:border-none border-none mr-4 bg-white font-semibold'>Meus Dados</button>
                 </a>
                 <Carrinho />
               </div>
             ) : (
-              <div className="flex mr-12">
+              <div className="flex">
                 <a className="text-black hover:text-black text-lg" href="cadastro">
-                  <button className='hover:border-none border-none mr-24 bg-white font-semibold'>Cadastro</button>
+                  <button className='hover:border-none border-none mr-6 bg-white font-semibold'>Cadastro</button>
                 </a>
                 <a className="text-black hover:text-black text-lg" href="login">
                   <button className='hover:border-none border-none bg-white font-semibold'>Login</button>
@@ -88,7 +78,41 @@ function NavBar() {
               </div>
             )}
           </div>
+
+          {/* Botão hamburguer mobile */}
+          <button className="md:hidden text-black" onClick={() => setMenuOpen(!menuOpen)}>
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} className="w-6 h-6" />
+          </button>
         </div>
+
+        {/* Menu Mobile */}
+        {menuOpen && (
+          <div className="md:hidden bg-white border-t px-4 py-4 flex flex-col gap-4">
+            <a href="/" className="text-black text-lg font-semibold">
+              <FontAwesomeIcon icon={faHouse} className='pr-2 w-6' />Início
+            </a>
+            <a href="pizzassalgadas" className="text-black text-lg font-semibold">Pizzas Salgadas</a>
+            <a href="pizzasdoces" className="text-black text-lg font-semibold">Pizzas Doces</a>
+            <a href="bebidas" className="text-black text-lg font-semibold">Bebidas</a>
+            {!Dados && <>
+              <a href="cadastrosalgadas" className="text-black text-lg font-semibold">Cadastrar Salgadas</a>
+              <a href="cadastrodoces" className="text-black text-lg font-semibold">Cadastrar Doces</a>
+              <a href="cadastrobebidas" className="text-black text-lg font-semibold">Cadastrar Bebidas</a>
+            </>}
+            <hr />
+            {Dados ? (
+              <div className="flex flex-col gap-2">
+                <a href="meusdados" className="text-black text-lg font-semibold">Meus Dados</a>
+                <Carrinho />
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2">
+                <a href="cadastro" className="text-black text-lg font-semibold">Cadastro</a>
+                <a href="login" className="text-black text-lg font-semibold">Login</a>
+              </div>
+            )}
+          </div>
+        )}
         <hr />
       </nav>
     </>

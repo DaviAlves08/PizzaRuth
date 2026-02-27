@@ -78,13 +78,13 @@ function Bebidas() {
           scrollbarColor: '#b7b3b3 #f1f1f1',
         }}>
         <NavBar />
-        <p className="text-5xl mt-20 text-center text-black">Bebidas</p>
-        <div className="grid grid-cols-5 mb-20 ml-6 gap-14 mt-20">
+        <p className="text-3xl md:text-5xl mt-20 text-center text-black">Bebidas</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-20 px-4 gap-6 mt-20 justify-items-center">
           {bebidas.map((bebida) =>
-            <div key={bebida.id} className="col-span-1">
-              <Card className="w-64 -pl-4">
+            <div key={bebida.id} className="w-full max-w-xs">
+              <Card className="w-full">
                 <div className="flex flex-col">
-                  <Typography className="text-xl self-center text-black font-normal">
+                  <Typography className="text-xl self-center text-black font-normal text-center px-2">
                     {bebida.nm_bebida}
                   </Typography>
                   <img className="w-36 h-36 object-cover self-center mt-2"
@@ -104,10 +104,10 @@ function Bebidas() {
         </div>
         <Dialog open={open} handler={() => setOpen(false)} size="md">
           <form onSubmit={(e) => cadastroPedidoBebida(e)}>
-            <div className="flex flex-row mt-4 text-black">
-              <div className="flex flex-col">
+            <div className="flex flex-col md:flex-row mt-4 text-black">
+              <div className="flex flex-col items-center">
                 <img
-                  className="h-96 w-80 object-cover object-center ml-2"
+                  className="h-64 w-64 md:h-96 md:w-80 object-cover object-center ml-2"
                   src={bebidaSelecionada ? bebidaSelecionada.cd_img : ""}
                   alt={bebidaSelecionada ? bebidaSelecionada.nm_bebida : ""}
                 />
@@ -121,19 +121,19 @@ function Bebidas() {
                   {bebidaSelecionada ? bebidaSelecionada.ds_bebida : ""}
                 </Typography>
               </div>
-              <div className="flex flex-col items-center -ml-4">
-                <Typography className="text-center text-3xl font-semibold mt-10">
+              <div className="flex flex-col items-center mt-4 md:mt-0">
+                <Typography className="text-center text-2xl md:text-3xl font-semibold mt-4 md:mt-10">
                   {bebidaSelecionada ? bebidaSelecionada.nm_bebida : ""}
                 </Typography>
-                <div className="flex flex-row justify-center mt-10">
-                  <Typography className="text-center me-4 text-2xl font-semibold">
+                <div className="flex flex-row justify-center mt-6 md:mt-10">
+                  <Typography className="text-center me-4 text-xl md:text-2xl font-semibold">
                     Valor:
                   </Typography>
-                  <Typography className="text-center text-2xl font-semibold">
+                  <Typography className="text-center text-xl md:text-2xl font-semibold">
                     {bebidaSelecionada ? `R$ ${bebidaSelecionada.vl_bebida}` : ""}
                   </Typography>
                 </div>
-                <Typography className="text-center mt-8 text-2xl font-semibold">
+                <Typography className="text-center mt-6 md:mt-8 text-xl md:text-2xl font-semibold">
                   Selecione a Quantidade
                 </Typography>
                 <div className="mt-5">
@@ -153,7 +153,7 @@ function Bebidas() {
                   />
                 </div>
                 <div className="mt-6">
-                  <Typography className="text-center mt-5 text-2xl font-bold">
+                  <Typography className="text-center mt-5 text-xl md:text-2xl font-bold">
                     Total: R$ {totalPedido.toFixed(2)}
                   </Typography>
                 </div>
