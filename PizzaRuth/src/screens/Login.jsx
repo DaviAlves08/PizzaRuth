@@ -46,7 +46,7 @@ function Login() {
                 <Typography className='text-red-500 text-lg font-bold'><a className='hover:text-red-500 text-red-500' href="/">Voltar para home</a></Typography>
               </div>
               <div className="flex flex-row ml-96 pb-2">
-                <img src="./src/assets/images/logo.png" className="h-12 mr-3" alt="PizzaRuth Logo" />
+                <img src="/images/logo.png" className="h-12 mr-3" alt="PizzaRuth Logo" />
                 <p className="text-2xl font-semibold whitespace-nowrap dark:text-black pt-2">Pizza Ruth</p>
               </div>
             </div>
@@ -54,7 +54,7 @@ function Login() {
           </nav>
           <div className="grid grid-cols-2  mb-10">
             <img
-              src="./src/assets/images/backcadastro.png"
+              src="/images/backcadastro.png"
               alt="imagem de login do pizzaruth"
               className="w-8/12 ml-40 mt-12"
             />

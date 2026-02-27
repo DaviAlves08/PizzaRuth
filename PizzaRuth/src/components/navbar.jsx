@@ -42,7 +42,7 @@ function NavBar() {
         <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
           <a href="/">
             <div className="flex items-center">
-              <img src="./src/assets/images/logo.png" className="h-14 mr-4" alt="PizzaRuth Logo" />
+              <img src="/images/logo.png" className="h-14 mr-4" alt="PizzaRuth Logo" />
               <p className="text-2xl font-semibold whitespace-nowrap dark:text-black">Pizza Ruth</p>
             </div>
           </a>

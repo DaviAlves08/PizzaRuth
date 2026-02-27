@@ -106,7 +106,7 @@ function CadastroPizzaDoce() {
         </Typography>
         <div className='flex justify-center'>
           <img
-            src="./src/assets/images/cadastrodoces.png"
+            src="/images/cadastrodoces.png"
             alt="image 1"
             className="h-80 w-80 mt-6 mb-6"
           />

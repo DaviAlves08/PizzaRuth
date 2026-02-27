@@ -104,7 +104,7 @@ function Carrinho() {
                         {pedidos.length === 0 ? (
                             <div className='flex flex-col items-center mt-36'>
                                 <img className='h-28 object-cover'
-                                    src='./src/assets/images/PizzaTriste.jpg'
+                                    src='/images/PizzaTriste.jpg'
                                     alt="card-image"
                                 />
                                 <Typography className="mt-4 font-bold text-black">

@@ -15,22 +15,22 @@ export function CarouselHome() {
           navigation={() => null}
         >
           <img
-            src="./src/assets/images/pizzacarrosel.jpg"
+            src="/images/pizzacarrosel.jpg"
             alt="imagem carrosel 1"
             className="h-full w-full object-cover"
           />
           <img
-            src="./src/assets/images/pizzacarrosel2.png"
+            src="/images/pizzacarrosel2.png"
             alt="image carrosel 2"
             className="h-full w-full object-cover"
           />
           <img
-            src="./src/assets/images/pizzacarrosel3.png"
+            src="/images/pizzacarrosel3.png"
             alt="image carrosel 3"
             className="h-full w-full object-cover"
           />
           <img
-            src="./src/assets/images/pizzacarrosel4.png"
+            src="/images/pizzacarrosel4.png"
             alt="image carrosel 4"
             className="h-full w-full object-cover"
           />

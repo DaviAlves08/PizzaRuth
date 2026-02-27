@@ -19,31 +19,31 @@ const RedesSociais = () => {
     {
       label: "Facebook",
       url: "https://www.facebook.com/suacontadefacebook",
-      imgSrc: "/src/assets/images/facebook.png",
+      imgSrc: "/images/facebook.png",
       alt: "facebook logo"
     },
     {
       label: "Instagram",
       url: "https://www.instagram.com",
-      imgSrc: "/src/assets/images/instagram.png",
+      imgSrc: "/images/instagram.png",
       alt: "instagram logo"
     },
     {
       label: "TikTok",
       url: "https://www.tiktok.comk",
-      imgSrc: "/src/assets/images/tik-tok.png",
+      imgSrc: "/images/tik-tok.png",
       alt: "tik-tok logo"
     },
     {
       label: "Twitter",
       url: "https://twitter.com",
-      imgSrc: "/src/assets/images/twitter.png",
+      imgSrc: "/images/twitter.png",
       alt: "twitter logo"
     },
     {
       label: "YouTube",
       url: "https://www.youtube.com",
-      imgSrc: "/src/assets/images/youtube.png",
+      imgSrc: "/images/youtube.png",
       alt: "youtube logo"
     }
   ];
@@ -102,7 +102,7 @@ export default function Footer() {
         <div className="flex flex-row">
           <img
             className="h-20 w-20 object-cover object-center mt-12 mr-4"
-            src="/src/assets/images/pizzaruthlogofooter.png"
+            src="/images/pizzaruthlogofooter.png"
             alt="logo pizza ruth"
           />
           <Typography className="text-white mt-16 mb-16 text-base font-semibold">Copyright © @2020 PIMENTA VERDE ALIMENTOS LTDA. – CNPJ :09.060.964/0001-08 - AVENIDA DRA RUTH CARDOSO Nº: 4777 – JARDIM UNIVERSIDADE PINHEIROS – SÃO PAULO/SP. Todos os direitos reservados.</Typography>

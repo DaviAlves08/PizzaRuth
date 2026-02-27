@@ -106,7 +106,7 @@ function CadastroPizzaSalgada() {
         </Typography>
         <div className='flex justify-center'>
           <img
-            src="./src/assets/images/cadastropizza.jpg"
+            src="/images/cadastropizza.jpg"
             alt="image 1"
             className="h-80 w-80 mt-6 mb-6"
           />

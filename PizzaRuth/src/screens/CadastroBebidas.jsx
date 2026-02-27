@@ -105,7 +105,7 @@ function CadastroBebidas() {
         </Typography>
         <div className='flex justify-center'>
           <img
-            src="./src/assets/images/cadastrobebidas.png"
+            src="/images/cadastrobebidas.png"
             alt="image 1"
             className="w-96 h-96 "
           />

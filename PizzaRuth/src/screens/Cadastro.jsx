@@ -77,7 +77,7 @@ function Cadastro() {
         <NavBar />
         <div className="grid grid-cols-2">
           <img
-            src="./src/assets/images/backcadastro.png"
+            src="/images/backcadastro.png"
             alt="image 1"
             className="w-8/12 ml-44 mt-12"
           />
