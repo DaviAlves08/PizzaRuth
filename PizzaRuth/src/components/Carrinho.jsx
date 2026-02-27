@@ -19,7 +19,7 @@ function Carrinho() {
     const [pedidoSelecionado, setPedidoSelecionado] = useState(null);
 
     function data() {
-        fetch('http://localhost:3001/pedidos')
+        fetch('https://pizzaruth.onrender.com/pedidos')
             .then((response) => response.json())
             .then((json) => setPedidos(json))
             .catch((error) => console.error('Erro ao buscar pedidos:', error));
@@ -40,7 +40,7 @@ function Carrinho() {
     const deletePedido = async (pedidoId) => {
         console.log('Excluir pedido:', pedidoId);
         try {
-            await axios.delete(`http://localhost:3001/deletePedido/${pedidoId}`);
+            await axios.delete(`https://pizzaruth.onrender.com/deletePedido/${pedidoId}`);
             setPedidos(pedidos.filter((pedido) => pedido.id !== pedidoId));
         } catch (error) {
             console.error("Erro ao excluir pedido:", error);
@@ -50,7 +50,7 @@ function Carrinho() {
     const deletePedidoAll = async (e) => {
         console.log('Excluir pedido:');
         try {
-            await axios.delete(`http://localhost:3001/deletePedidoAll`);
+            await axios.delete(`https://pizzaruth.onrender.com/deletePedidoAll`);
             setOpen(false);
         } catch (error) {
             console.error("Erro ao excluir pedido:", error);

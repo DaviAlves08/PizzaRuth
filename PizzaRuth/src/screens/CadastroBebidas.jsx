@@ -34,7 +34,7 @@ function CadastroBebidas() {
   };
 
   function data() {
-    fetch("http://localhost:3001/bebidas")
+    fetch("https://pizzaruth.onrender.com/bebidas")
       .then((response) => response.json())
       .then((json) => setBebidas(json));
   }
@@ -51,7 +51,7 @@ function CadastroBebidas() {
         descricao,
         valor,
       };
-      await axios.post('http://localhost:3001/cadastrarBebidas', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarBebidas', post);
       console.log(post);
       data();
       setNome('');
@@ -67,7 +67,7 @@ function CadastroBebidas() {
   const deleteBebida = async () => {
     console.log('Excluir bebida:', bebidaSelecionada.id);
     try {
-      await axios.delete(`http://localhost:3001/deleteBebida/${bebidaSelecionada.id}`);
+      await axios.delete(`https://pizzaruth.onrender.com/deleteBebida/${bebidaSelecionada.id}`);
       setBebidas(bebidas.filter((bebida) => bebida.id !== bebidaSelecionada.id));
       setOpen(false);
     } catch (error) {
@@ -84,7 +84,7 @@ function CadastroBebidas() {
         imagem: imagem,
         valor: valor
       };
-      await axios.put(`http://localhost:3001/alterarBebida/${bebidaSelecionada.id}`, post);
+      await axios.put(`https://pizzaruth.onrender.com/alterarBebida/${bebidaSelecionada.id}`, post);
       setOpen(false);
       data();
     } catch (error) {

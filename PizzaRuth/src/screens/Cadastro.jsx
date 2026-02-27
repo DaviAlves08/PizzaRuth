@@ -47,7 +47,7 @@ function Cadastro() {
         numero,
         complemento: complementoFinal,
       };
-      await axios.post('http://localhost:3001/cadastrarUsuario', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarUsuario', post);
       setNome('');
       setEmail('');
       setSenha('');

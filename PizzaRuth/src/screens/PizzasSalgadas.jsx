@@ -59,7 +59,7 @@ function PizzasSalgadas() {
   };
 
   function data() {
-    fetch('http://localhost:3001/pizzas-salgadas')
+    fetch('https://pizzaruth.onrender.com/pizzas-salgadas')
       .then((response) => response.json())
       .then((json) => setPizzas(json));
   }
@@ -90,7 +90,7 @@ function PizzasSalgadas() {
         quantidade: quantidadeSelecionada,
         valor: totalPedido
       };
-      await axios.post('http://localhost:3001/cadastrarPedido', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPedido', post);
       setNome('');
       setImagem('');
       setTamanho('');

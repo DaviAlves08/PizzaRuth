@@ -22,7 +22,7 @@ function CardCarroselBebidas() {
   const [imagem, setImagem] = useState('');
 
   useEffect(() => {
-    fetch("http://localhost:3001/bebidas")
+    fetch("https://pizzaruth.onrender.com/bebidas")
       .then((response) => response.json())
       .then((json) => setBebidas(json));
   }, []);
@@ -56,7 +56,7 @@ function CardCarroselBebidas() {
       };
 
       console.log(post)
-      await axios.post('http://localhost:3001/cadastrarPedido', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPedido', post);
       console.log(post);
       setNome('');
       setImagem('')

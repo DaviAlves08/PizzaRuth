@@ -34,7 +34,7 @@ function CadastroPizzaSalgada() {
   };
 
   function data() {
-    fetch("http://localhost:3001/pizzas-salgadas")
+    fetch("https://pizzaruth.onrender.com/pizzas-salgadas")
       .then((response) => response.json())
       .then((json) => setPizzas(json));
   }
@@ -53,7 +53,7 @@ function CadastroPizzaSalgada() {
         valor,
       };
       console.log(post)
-      await axios.post('http://localhost:3001/cadastrarPizzaSalgada', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPizzaSalgada', post);
       data();
       setSabor('');
       setImagem('');
@@ -68,7 +68,7 @@ function CadastroPizzaSalgada() {
   const deletePizza = async () => {
     console.log('Excluir bebida:', pizzaSelecionada.id);
     try {
-      await axios.delete(`http://localhost:3001/deletePizzaSalgada/${pizzaSelecionada.id}`);
+      await axios.delete(`https://pizzaruth.onrender.com/deletePizzaSalgada/${pizzaSelecionada.id}`);
       setPizzas(pizzas_salgadas.filter((pizza) => pizza.id !== pizzaSelecionada.id));
       setOpen(false);
     } catch (error) {
@@ -85,7 +85,7 @@ function CadastroPizzaSalgada() {
         imagem: imagem,
         valor: valor
       };
-      await axios.put(`http://localhost:3001/alterarPizzaSalgada/${pizzaSelecionada.id}`, post);
+      await axios.put(`https://pizzaruth.onrender.com/alterarPizzaSalgada/${pizzaSelecionada.id}`, post);
       setOpen(false);
       data();
     } catch (error) {

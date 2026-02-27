@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:3001/login',
+        'https://pizzaruth.onrender.com/login',
         { email, password },
         { headers: { 'Content-Type': 'application/json' } }
       );

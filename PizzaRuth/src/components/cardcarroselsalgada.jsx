@@ -25,7 +25,7 @@ function CardCarroselSalgada() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3001/pizzas-salgadas")
+    fetch("https://pizzaruth.onrender.com/pizzas-salgadas")
       .then((response) => response.json())
       .then((json) => setPizzasSalgadas(json));
   }, []);
@@ -84,7 +84,7 @@ function CardCarroselSalgada() {
         valor: totalPedido
       };
       console.log(post)
-      await axios.post('http://localhost:3001/cadastrarPedido', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPedido', post);
       console.log(post);
       setNome('');
       setImagem('');

@@ -25,7 +25,7 @@ function Bebidas() {
   const [imagem, setImagem] = useState('')
 
   function data() {
-    fetch('http://localhost:3001/bebidas')
+    fetch('https://pizzaruth.onrender.com/bebidas')
       .then((response) => response.json())
       .then((json) => setBebidas(json));
   }
@@ -60,7 +60,7 @@ function Bebidas() {
         quantidade: quantidadeSelecionada,
         valor: totalPedido
       };
-      await axios.post('http://localhost:3001/cadastrarPedido', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPedido', post);
       setNome('');
       setImagem('');
       setTamanho('');

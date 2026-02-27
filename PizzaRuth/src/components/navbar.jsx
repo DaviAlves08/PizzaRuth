@@ -26,7 +26,7 @@ function NavBar() {
         if (!userEmail) {
           return;
         }
-        const response = await axios.get(`http://localhost:3001/Dados?email=${userEmail}`);
+        const response = await axios.get(`https://pizzaruth.onrender.com/Dados?email=${userEmail}`);
         setDados(response.data);
       } catch (error) {
         console.error('Erro ao obter os dados do usuário:', error);

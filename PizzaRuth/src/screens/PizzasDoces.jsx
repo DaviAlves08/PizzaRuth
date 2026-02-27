@@ -58,7 +58,7 @@ function PizzasDoces({ atualizarPedidos }) {
   };
 
   function data() {
-    fetch('http://localhost:3001/pizzas-doces')
+    fetch('https://pizzaruth.onrender.com/pizzas-doces')
       .then((response) => response.json())
       .then((json) => setPizzas(json));
   }
@@ -90,7 +90,7 @@ function PizzasDoces({ atualizarPedidos }) {
         valor: totalPedido
       };
       console.log(post)
-      await axios.post('http://localhost:3001/cadastrarPedido', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPedido', post);
       atualizarPedidos();
       console.log(post);
       setNome('');

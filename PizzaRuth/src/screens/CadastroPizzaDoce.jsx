@@ -34,7 +34,7 @@ function CadastroPizzaDoce() {
   };
 
   function data() {
-    fetch("http://localhost:3001/pizzas-doces")
+    fetch("https://pizzaruth.onrender.com/pizzas-doces")
       .then((response) => response.json())
       .then((json) => setPizzas(json));
   }
@@ -53,7 +53,7 @@ function CadastroPizzaDoce() {
         valor,
       };
       console.log(post)
-      await axios.post('http://localhost:3001/cadastrarPizzaDoce', post);
+      await axios.post('https://pizzaruth.onrender.com/cadastrarPizzaDoce', post);
       data();
       setSabor('');
       setImagem('');
@@ -68,7 +68,7 @@ function CadastroPizzaDoce() {
   const deletePizza = async () => {
     console.log('Excluir bebida:', pizzaSelecionada.id);
     try {
-      await axios.delete(`http://localhost:3001/deletePizzaDoce/${pizzaSelecionada.id}`);
+      await axios.delete(`https://pizzaruth.onrender.com/deletePizzaDoce/${pizzaSelecionada.id}`);
       setPizzas(pizzas_doces.filter((pizza) => pizza.id !== pizzaSelecionada.id));
       setOpen(false);
     } catch (error) {
@@ -85,7 +85,7 @@ function CadastroPizzaDoce() {
         imagem: imagem,
         valor: valor
       };
-      await axios.put(`http://localhost:3001/alterarPizzaDoce/${pizzaSelecionada.id}`, post);
+      await axios.put(`https://pizzaruth.onrender.com/alterarPizzaDoce/${pizzaSelecionada.id}`, post);
       setOpen(false);
       data();
     } catch (error) {
