@@ -113,26 +113,26 @@ function CadastroBebidas() {
         <form key={formKey} onSubmit={(e) => PostBebida(e)}>
           <div className="flex flex-row justify-center text-black">
             <div className="flex flex-col">
-              <div className="flex row">
+              <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex flex-col mr-4">
                   <Typography variant="h4" className="text-center text-black">
                     Nome
                   </Typography>
-                  <input className='border border-gray-950 rounded-xl w-52 pl-2 bg-white' type="text" name="nome" id="nome"
+                  <input className='border border-gray-950 rounded-xl w-full md:w-52 pl-2 bg-white' type="text" name="nome" id="nome"
                     onChange={(e) => setNome(e.target.value)} />
                 </div>
                 <div className="flex flex-col mr-4">
                   <Typography variant="h4" className="text-center text-black">
                     URL imagem
                   </Typography>
-                  <input className='border border-gray-950 rounded-xl w-52 pl-2 bg-white' type="text" name="imagem" id="imagem"
+                  <input className='border border-gray-950 rounded-xl w-full md:w-52 pl-2 bg-white' type="text" name="imagem" id="imagem"
                     onChange={(e) => setImagem(e.target.value)} />
                 </div>
                 <div className="flex flex-col">
                   <Typography variant="h4" className="text-center mr-5 text-black">
                     Valor
                   </Typography>
-                  <input className='border border-gray-950 rounded-xl w-52 pl-2 bg-white' type="text" name="valor" id="valor"
+                  <input className='border border-gray-950 rounded-xl w-full md:w-52 pl-2 bg-white' type="text" name="valor" id="valor"
                     onChange={(e) => setValor(e.target.value)} />
                 </div>
               </div>
@@ -222,39 +222,22 @@ function CadastroBebidas() {
                   onChange={(e) => setValor(e.target.value)}
                 />
               </CardBody>
-              <DialogFooter>
-                <Button
-                  variant="text"
-                  color="red"
-                  onClick={() => setOpen(false)}
-                  className="mr-32 bg-white"
-                >
+              <DialogFooter className="flex justify-between items-center">
+                <Button variant="text" color="red" onClick={() => setOpen(false)} className="bg-white">
                   <span>Cancelar</span>
                 </Button>
-                <Button
-                  variant="gradient"
-                  color="green"
-                  type="submit"
-                  className=""
-                  onClick={() => {
+                <div className="flex gap-2">
+                  <Button variant="gradient" color="green" type="submit" onClick={() => {
                     console.log(bebidaSelecionada.id);
-                    atualizarBebida();
-                  }}
-                >
-                  <span>Alterar</span>
-                </Button>
-                <Button
-                  variant="gradient"
-                  color="red"
-                  type="submit"
-                  className="ml-6 mr-4"
-                  onClick={() => {
+                    atualizarBebida();}}>
+                    <span>Alterar</span>
+                  </Button>
+                  <Button variant="gradient" color="red" onClick={() => {
                     console.log(bebidaSelecionada.id);
-                    deleteBebida();
-                  }}
-                >
-                  <span>Excluir</span>
-                </Button>
+                    deleteBebida();}}>
+                    <span>Excluir</span>
+                  </Button>
+                </div>
               </DialogFooter>
             </Card>
           </form>

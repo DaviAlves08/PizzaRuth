@@ -35,19 +35,18 @@ function Login() {
         <div className="w-screen h-full overflow-x-hidden"
           style={{ scrollbarWidth: 'thin', scrollbarColor: '#b7b3b3 #f1f1f1' }}>
           <nav className="bg-white border-gray-200">
-            <div className="max-w-screen-xl flex flex-wrap mx-auto p-4 mt-6">
-              <div className="flex flex-row mt-3">
-                <FontAwesomeIcon icon={faArrowLeft} className='text-red-500 pr-4 w-4 pt-0.5' />
-                <Typography className='text-red-500 text-lg font-bold'>
+            <div className="flex items-center justify-between px-4 py-3 border-b">
+              <div className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faArrowLeft} className='text-red-500 w-4' />
+                <Typography className='text-red-500 text-base font-bold'>
                   <a className='hover:text-red-500 text-red-500' href="/">Voltar para home</a>
                 </Typography>
               </div>
-              <div className="flex flex-row mx-auto pb-2">
-                <img src="/images/logo.png" className="h-12 mr-3" alt="PizzaRuth Logo" />
-                <p className="text-2xl font-semibold whitespace-nowrap dark:text-black pt-2">Pizza Ruth</p>
+              <div className="flex items-center gap-2">
+                <img src="/images/logo.png" className="h-10" alt="PizzaRuth Logo" />
+                <p className="text-xl font-semibold text-black">Pizza Ruth</p>
               </div>
             </div>
-            <hr />
           </nav>
           <div className="flex flex-col md:grid md:grid-cols-2 mb-10">
             <div className="flex justify-center md:block">

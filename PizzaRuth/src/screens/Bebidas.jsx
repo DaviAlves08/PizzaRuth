@@ -79,24 +79,19 @@ function Bebidas() {
         }}>
         <NavBar />
         <p className="text-3xl md:text-5xl mt-20 text-center text-black">Bebidas</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-20 px-4 gap-6 mt-20 justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-20 px-4 gap-4 mt-10">
           {bebidas.map((bebida) =>
-            <div key={bebida.id} className="w-full max-w-xs">
-              <Card className="w-full">
-                <div className="flex flex-col">
-                  <Typography className="text-xl self-center text-black font-normal text-center px-2">
-                    {bebida.nm_bebida}
-                  </Typography>
-                  <img className="w-36 h-36 object-cover self-center mt-2"
-                    src={bebida.cd_img}
-                    alt="Imagem de uma bebida"
-                  />
-                  <CardBody>
-                    <Typography className="text-lg flex flex-row justify-center font-bold text-xl">R$ {bebida.vl_bebida.toFixed(2)}</Typography>
-                  </CardBody>
-                </div>
-                <CardFooter className="pt-0 self-center">
-                  <Button onClick={() => abrirModal(bebida)}>Selecionar</Button>
+            <div key={bebida.id} className="w-full">
+              <Card className="w-full h-full flex flex-col">
+                <img className="w-full h-36 md:h-44 object-contain rounded-t-lg bg-white"
+                  src={bebida.cd_img} alt="card-image" />
+                <CardBody className="flex flex-col flex-grow p-2">
+                  <Typography className="text-sm text-black font-semibold text-center">{bebida.nm_bebida}</Typography>
+                  <Typography className="text-xs text-black text-center mt-1 flex-grow">{bebida.ds_bebida}</Typography>
+                  <Typography className="text-sm flex justify-center mt-2 text-black font-bold">R$ {bebida.vl_bebida.toFixed(2)}</Typography>
+                </CardBody>
+                <CardFooter className="pt-0 flex justify-center pb-3">
+                  <Button size="sm" onClick={() => abrirModal(bebida)}>Selecionar</Button>
                 </CardFooter>
               </Card>
             </div>
@@ -104,10 +99,10 @@ function Bebidas() {
         </div>
         <Dialog open={open} handler={() => setOpen(false)} size="md">
           <form onSubmit={(e) => cadastroPedidoBebida(e)}>
-            <div className="flex flex-col md:flex-row mt-4 text-black">
+            <div className="flex flex-col mt-4 text-black">
               <div className="flex flex-col items-center">
                 <img
-                  className="h-64 w-64 md:h-96 md:w-80 object-cover object-center ml-2"
+                  className="w-full h-52 object-contain rounded-lg bg-gray-50"
                   src={bebidaSelecionada ? bebidaSelecionada.cd_img : ""}
                   alt={bebidaSelecionada ? bebidaSelecionada.nm_bebida : ""}
                 />
@@ -121,7 +116,7 @@ function Bebidas() {
                   {bebidaSelecionada ? bebidaSelecionada.ds_bebida : ""}
                 </Typography>
               </div>
-              <div className="flex flex-col items-center mt-4 md:mt-0">
+              <div className="flex flex-col items-center w-full mt-2">
                 <Typography className="text-center text-2xl md:text-3xl font-semibold mt-4 md:mt-10">
                   {bebidaSelecionada ? bebidaSelecionada.nm_bebida : ""}
                 </Typography>

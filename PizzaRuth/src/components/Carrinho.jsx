@@ -114,7 +114,7 @@ function Carrinho() {
                         ) : (
                             pedidos.map((pedido) => (
                                 <div key={pedido.id}>
-                                    <Card className="mt-4 w-96 ml-2 mr-0 h-52 border-2">
+                                    <Card className="mt-4 w-full mx-2 border-2">
                                         <CardBody>
                                             <div className="flex flex-row ">
                                                 <div className="-ml-2">
@@ -150,7 +150,7 @@ function Carrinho() {
                                         </CardBody>
                                         <CardFooter className="-mt-6">
                                             <div className="flex flex-row">
-                                                <Typography variant='h5' color="blue-gray" className="mr-36 mt-2">
+                                                <Typography variant='h5' color="blue-gray" className="mr-4 mt-2">
                                                     R$ {pedido.vl_total_pedido.toFixed(2)}
                                                 </Typography>
                                                 <Button variant="gradient" color='red' onClick={() => deletePedido(pedido.id)} className='w-18'>Excluir</Button>
@@ -162,8 +162,8 @@ function Carrinho() {
                         )}
                         <div className="fixed bottom-0 left-0 bg-white w-full p-4 border-t border-gray-500 ">
                             <div className='align center'>
-                                <Typography variant="h5" className="mb-2 ml-16 text-black">Total do Pedido: R$ {calcularTotalPedido()}</Typography>
-                                <Button variant="gradient" color="green" className='ml-32'>Pagamento</Button>
+                                <Typography variant="h5" className="mb-2 text-black">Total do Pedido: R$ {calcularTotalPedido()}</Typography>
+                                <Button variant="gradient" color="green" className='mx-auto flex justify-center'>Pagamento</Button>
                             </div>
                         </div>
                     </form>

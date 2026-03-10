@@ -95,33 +95,29 @@ function PizzasSalgadas() {
         style={{ scrollbarWidth: 'thin', scrollbarColor: '#b7b3b3 #f1f1f1' }}>
         <NavBar />
         <p className="text-3xl md:text-5xl mt-20 text-center text-black">Pizzas Salgadas</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-20 px-4 gap-6 mt-20 justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-20 px-4 gap-4 mt-10">
           {pizzas_salgadas.map((pizza) =>
-            <div key={pizza.id} className="w-full max-w-xs">
-              <Card className="w-full">
-                <div className="flex flex-col">
-                  <Typography className="text-xl self-center text-black font-normal text-center px-2">
-                    {pizza.nm_sabor}
-                  </Typography>
-                  <img className="w-full h-44 object-cover self-center mt-2 rounded-lg"
-                    src={pizza.cd_img} alt="card-image" />
-                  <CardBody>
-                    <Typography className="text-xl self-center text-black text-center">{pizza.ds_pizza}</Typography>
-                    <Typography className="text-lg flex flex-row justify-center mt-4 text-black font-bold text-xl">R$ {pizza.vl_pizza.toFixed(2)}</Typography>
-                  </CardBody>
-                </div>
-                <CardFooter className="pt-0 self-center">
-                  <Button onClick={() => abrirModal(pizza)}>Selecionar</Button>
+            <div key={pizza.id} className="w-full">
+              <Card className="w-full h-full flex flex-col">
+                <img className="w-full h-32 md:h-40 object-cover rounded-t-lg"
+                  src={pizza.cd_img} alt="card-image" />
+                <CardBody className="flex flex-col flex-grow p-2">
+                  <Typography className="text-sm text-black font-semibold text-center">{pizza.nm_sabor}</Typography>
+                  <Typography className="text-xs text-black text-center mt-1 flex-grow">{pizza.ds_pizza}</Typography>
+                  <Typography className="text-sm flex justify-center mt-2 text-black font-bold">R$ {pizza.vl_pizza.toFixed(2)}</Typography>
+                </CardBody>
+                <CardFooter className="pt-0 flex justify-center pb-3">
+                  <Button size="sm" onClick={() => abrirModal(pizza)}>Selecionar</Button>
                 </CardFooter>
               </Card>
             </div>
           )}
         </div>
-        <Dialog open={open} handler={() => setOpen(false)} size="lg">
+        <Dialog open={open} handler={() => setOpen(false)} size="sm">
           <form onSubmit={(e) => CadastrarPedido(e)}>
-            <div className="flex flex-col md:flex-row mt-4 text-black">
-              <div className="flex flex-col items-center mx-4">
-                <img className="h-64 w-64 md:h-96 md:w-96 rounded-lg"
+            <div className="flex flex-col mt-4 text-black">
+              <div className="flex flex-col items-center w-full">
+                <img className="w-full h-52 object-contain rounded-lg bg-gray-50"
                   src={pizzaSelecionada ? pizzaSelecionada.cd_img : ""}
                   alt={pizzaSelecionada ? pizzaSelecionada.nm_sabor : ""} />
                 <Typography className="text-center mt-5 text-xl font-semibold">Ingredientes</Typography>
@@ -129,23 +125,23 @@ function PizzasSalgadas() {
                   {pizzaSelecionada ? pizzaSelecionada.ds_pizza : ""}
                 </Typography>
               </div>
-              <div className="flex flex-col items-center mt-4 md:mt-0">
-                <Typography className="text-center text-2xl md:text-4xl font-semibold px-2">
+              <div className="flex flex-col items-center w-full mt-2">
+                <Typography className="text-center text-xl font-semibold px-2">
                   Pizza de {pizzaSelecionada ? pizzaSelecionada.nm_sabor : ""}
                 </Typography>
                 <div className="flex flex-row justify-center mt-4">
-                  <Typography className="text-center mt-4 me-4 text-xl md:text-3xl font-semibold">Valor:</Typography>
-                  <Typography className="text-center mt-5 text-lg md:text-2xl font-semibold">
+                  <Typography className="text-center me-4 text-lg font-semibold">Valor:</Typography>
+                  <Typography className="text-center text-base font-semibold">
                     {pizzaSelecionada ? `R$ ${pizzaSelecionada.vl_pizza.toFixed(2)}` : ""}
                   </Typography>
                 </div>
-                <Typography className="text-center mt-6 md:mt-10 text-xl md:text-2xl font-semibold">Selecione o Tamanho</Typography>
+                <Typography className="text-center mt-3 text-base font-semibold">Selecione o Tamanho</Typography>
                 <div className="mt-4 text-xl">
                   <Radio name="type" label="Pequena" checked={tamanhoSelecionado === 'Pequena'} value={tamanho} onChange={() => atualizarTamanho('Pequena')} />
                   <Radio name="type" label="Media" defaultChecked checked={tamanhoSelecionado === 'Média'} value={tamanho} onChange={() => atualizarTamanho('Média')} />
                   <Radio name="type" label="Grande" checked={tamanhoSelecionado === 'Grande'} value={tamanho} onChange={() => atualizarTamanho('Grande')} />
                 </div>
-                <Typography className="text-center mt-6 md:mt-10 text-xl md:text-2xl font-semibold">Selecione a Quantidade</Typography>
+                <Typography className="text-center mt-3 text-base font-semibold">Selecione a Quantidade</Typography>
                 <div className="mt-5">
                   <input
                     className="border border-gray-400 py-1 px-2 w-44 text-lg rounded-lg bg-white text-black"

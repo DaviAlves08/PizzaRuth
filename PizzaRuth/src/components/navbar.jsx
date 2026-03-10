@@ -35,7 +35,7 @@ function NavBar() {
             </div>
           </a>
 
-          {/* Menu Desktop */}
+          
           <div className="hidden md:flex justify-center flex-grow">
             <ul className="flex flex-row">
               <li className="px-4">
@@ -79,13 +79,13 @@ function NavBar() {
             )}
           </div>
 
-          {/* Botão hamburguer mobile */}
+          
           <button className="md:hidden text-black" onClick={() => setMenuOpen(!menuOpen)}>
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} className="w-6 h-6" />
           </button>
         </div>
 
-        {/* Menu Mobile */}
+        
         {menuOpen && (
           <div className="md:hidden bg-white border-t px-4 py-4 flex flex-col gap-4">
             <a href="/" className="text-black text-lg font-semibold">
