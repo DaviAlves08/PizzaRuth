@@ -38,7 +38,6 @@ function Carrinho() {
     }, []);
 
     const deletePedido = async (pedidoId) => {
-        console.log('Excluir pedido:', pedidoId);
         try {
             await axios.delete(`https://pizzaruth.onrender.com/deletePedido/${pedidoId}`);
             setPedidos(pedidos.filter((pedido) => pedido.id !== pedidoId));
@@ -48,7 +47,6 @@ function Carrinho() {
     };
 
     const deletePedidoAll = async (e) => {
-        console.log('Excluir pedido:');
         try {
             await axios.delete(`https://pizzaruth.onrender.com/deletePedidoAll`);
             setOpen(false);
@@ -75,7 +73,7 @@ function Carrinho() {
                 open={open}
                 onClose={() => setOpen(false)}
                 handler={() => setOpen(false)}
-                size='xs'
+                size='sm'
                 animate={{
                     mount: { scale: 1, y: -10 },
                     unmount: { scale: 5, y: 0 },
@@ -89,16 +87,19 @@ function Carrinho() {
                     scrollbarColor: '#b7b3b3 #f1f1f1',
                 }}
             >
-                <div className='flex flex-row ml-4' >
-                    <FontAwesomeIcon icon={faTimes} className='pt-6 h-8 text-red-500 ' onClick={() => setOpen(false)} />
-                    <DialogHeader className='mt-1.5 text-black'>Seu Carrinho</DialogHeader>
+                <div className='flex flex-row items-center justify-between px-4 pt-4'>
+                    <div className='flex flex-row items-center gap-3'>
+                        <FontAwesomeIcon icon={faTimes} className='h-6 text-red-500 cursor-pointer mt-1' onClick={() => setOpen(false)} />
+                        <DialogHeader className='p-0 -ml-2 md:ml-0 text-black text-base md:text-xl lg:-ml-2 xl:ml-2'>Seu Carrinho</DialogHeader>
+                    </div>
                     <Typography
                         variant='h6'
-                        className='mt-6 ml-14 text-red-500 underline underline-offset-4 cursor-pointer'
+                        className='text-red-500 underline underline-offset-4 cursor-pointer text-sm whitespace-nowrap '
                         onClick={() => deletePedidoAll()}>
                         Limpar Carrinho
                     </Typography>
                 </div>
+
                 <div className="max-h-full overflow-x-hidden" style={{ paddingBottom: '180px' }}>
                     <form onSubmit={(e) => e.preventDefault()}>
                         {pedidos.length === 0 ? (
@@ -114,57 +115,47 @@ function Carrinho() {
                         ) : (
                             pedidos.map((pedido) => (
                                 <div key={pedido.id}>
-                                    <Card className="mt-4 w-full mx-2 border-2">
+                                    <Card className="mt-4 mx-2 border-2">
                                         <CardBody>
-                                            <div className="flex flex-row ">
-                                                <div className="-ml-2">
-                                                    <img className='w-24 h-24 object-cover'
+                                            <div className="flex flex-row">
+                                                <div className="shrink-0">
+                                                    <img className='w-20 h-20 object-cover rounded'
                                                         src={pedido.cd_img}
                                                         alt="card-image"
                                                     />
                                                 </div>
-                                                <div className='pl-6'>
-                                                    <Typography variant="h5" color="blue-gray" className="mb-2">
+                                                <div className='pl-4 min-w-0'>
+                                                    <Typography variant="h5" color="blue-gray" className="mb-2 truncate">
                                                         {pedido.nm_pizza}
                                                     </Typography>
                                                     {pedido.ds_tamanho !== ' ' && (
-                                                        <div className="flex">
-                                                            <Typography variant="h6" color="blue-gray" className="mr-2">
-                                                                Tamanho:
-                                                            </Typography>
-                                                            <Typography variant="h6" color="blue-gray" className="">
-                                                                {pedido.ds_tamanho}
-                                                            </Typography>
+                                                        <div className="flex flex-wrap gap-1">
+                                                            <Typography variant="h6" color="blue-gray">Tamanho:</Typography>
+                                                            <Typography variant="h6" color="blue-gray">{pedido.ds_tamanho}</Typography>
                                                         </div>
                                                     )}
-                                                    <div className="flex">
-                                                        <Typography variant="h6" color="blue-gray" className="mr-2">
-                                                            Quantidade:
-                                                        </Typography>
-                                                        <Typography variant="h6" color="blue-gray" className="">
-                                                            {pedido.ds_quantidade}
-                                                        </Typography>
+                                                    <div className="flex flex-wrap gap-1">
+                                                        <Typography variant="h6" color="blue-gray">Quantidade:</Typography>
+                                                        <Typography variant="h6" color="blue-gray">{pedido.ds_quantidade}</Typography>
                                                     </div>
                                                 </div>
                                             </div>
                                         </CardBody>
                                         <CardFooter className="-mt-6">
-                                            <div className="flex flex-row">
-                                                <Typography variant='h5' color="blue-gray" className="mr-4 mt-2">
+                                            <div className="flex flex-row items-center justify-between">
+                                                <Typography variant='h5' color="blue-gray">
                                                     R$ {pedido.vl_total_pedido.toFixed(2)}
                                                 </Typography>
-                                                <Button variant="gradient" color='red' onClick={() => deletePedido(pedido.id)} className='w-18'>Excluir</Button>
+                                                <Button variant="gradient" color='red' onClick={() => deletePedido(pedido.id)}>Excluir</Button>
                                             </div>
                                         </CardFooter>
                                     </Card>
                                 </div>
                             ))
                         )}
-                        <div className="fixed bottom-0 left-0 bg-white w-full p-4 border-t border-gray-500 ">
-                            <div className='align center'>
-                                <Typography variant="h5" className="mb-2 text-black">Total do Pedido: R$ {calcularTotalPedido()}</Typography>
-                                <Button variant="gradient" color="green" className='mx-auto flex justify-center'>Pagamento</Button>
-                            </div>
+                        <div className="fixed bottom-0 left-0 bg-white w-full p-4 border-t border-gray-500">
+                            <Typography variant="h5" className="mb-2 text-black">Total do Pedido: R$ {calcularTotalPedido()}</Typography>
+                            <Button variant="gradient" color="green" className='w-full'>Pagamento</Button>
                         </div>
                     </form>
                 </div>
